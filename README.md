@@ -2,43 +2,50 @@
 
 ### This is a command-line application that utilizes the free version of the [**Assembly AI API**](https://www.assemblyai.com/docs).
 
-This app transcribes any audio files into texts. There are 4 types of transcribe methods:
+This app transcribes any audio files into texts. There are 4 types of transcribing methods:
 
-1.  **Transcribe** an video/audio file.
+#### 1. TRANSCRIBE
+Transcribe a video/audio file.
 
-    - You can also enable **Speaker Diarization** to detect speakers in an video/audio file.
+- You can also enable **Speaker Diarization** to detect speakers in a video/audio file.
 
-2.  Generating **subtitles** for video/audio file.
+#### 2. SUBTITLES
 
-    You can export your completed transcripts in SRT or VTT format, which can be used for subtitles and closed captions in videos.
+Generating subtitles for video/audio files.
 
-    - **SRT (SubRip Text)** files are commonly used to store subtitles for videos.
-      The format is plain text, and it contains the timing information for each subtitle along with the subtitle text itself.
-    - **WEBVTT (Web Video Text Tracks)**, which is a standard format for displaying timed text tracks (such as subtitles or captions)
-      within HTML5 video.
+You can export your completed transcripts in SRT or VTT format, which can be used for subtitles and closed captions in videos.
 
-3.  Identifying **highlights** in video/audio files
+- **SRT (SubRip Text)** files are commonly used to store subtitles for videos. The format is plain text, and it contains the timing information for each subtitle along with the subtitle text itself.
+- **WEBVTT (Web Video Text Tracks)**, which is a standard format for displaying timed text tracks (such as subtitles or captions) within HTML5 video.
 
-    The Key Phrases model identifies significant words and phrases in your transcript and lets you to extract the most important concepts or highlights from your audio or video file.
+#### 3. HIGHLIGHTS
 
-4.  Creating **summarized chapters** from podcasts
+Identifying highlights in video/audio files.
 
-    The Auto Chapters model summarizes audio data over time into chapters. Chapters makes it easy for users to navigate and find specific information.
+The Key Phrases model identifies significant words and phrases in your transcript and lets you extract the most important concepts or highlights from your audio or video file.
 
-    Each chapter contains the following:
+#### 4. SUMMARIZED CHAPTERS
 
-    - Summary
-    - One-line gist
-    - Headline
-    - Start and end timestamps
+Creating summarized chapters from podcasts.
+
+The Auto Chapters model summarizes audio data over time into chapters. Chapters make it easy for users to navigate and find specific information.
+
+Each chapter contains the following:
+
+- Summary
+- One-line gist
+- Headline
+- Start and end timestamps
+
+## Links
 
 #### [Assembly AI - Home page](https://www.assemblyai.com/)
 
 #### [Assembly AI - Documentation](https://www.assemblyai.com/docs)
 
-#### [Assembly AI - Dashboard (Log in required)](https://www.assemblyai.com/app)
+#### [Assembly AI - Dashboard (Login required)](https://www.assemblyai.com/app)
 
-You can also try their playground website (upload your audio / video file).
+You can also try their playground website (upload your audio/video file).
 
 #### [**Assembly AI - Playground**](https://www.assemblyai.com/playground/source)
 
