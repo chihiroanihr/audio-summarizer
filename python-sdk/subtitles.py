@@ -1,5 +1,5 @@
 '''
-# Generating subtitles for videos
+# Generating subtitles for audios
 
 You can export your completed transcripts in SRT or VTT format, which can be used for subtitles and closed captions in videos. 
 

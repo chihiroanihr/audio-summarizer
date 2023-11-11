@@ -1,11 +1,8 @@
 '''
 # Transcribing an audio file
 
-Start by making sure the `assemblyai` package is installed.
-If not, you can install it by running the following command:
-pip install -U assemblyai
-
-Note: Some macOS users may need to use `pip3` instead of `pip`.
+- Transcribe an audio file.
+- Enable Speaker Diarization to detect speakers in an audio file.
 '''
 
 import os
