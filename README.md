@@ -5,6 +5,7 @@
 This app transcribes any audio files into texts. There are 4 types of transcribing methods:
 
 #### 1. TRANSCRIBE
+
 Transcribe a video/audio file.
 
 - You can also enable **Speaker Diarization** to detect speakers in a video/audio file.
