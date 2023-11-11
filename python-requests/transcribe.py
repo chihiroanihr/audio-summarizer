@@ -1,5 +1,7 @@
 import requests
 
+API_KEY = os.environ["API_ASSEMBLY-AI"]
+
 endpoint = "https://api.assembly.ai.com/v2/transcript"
 
 json = {
@@ -9,7 +11,7 @@ json = {
 }
 
 headers = {
-    "authorization": "", # Your API Key
+    "authorization": API_KEY, # Your API Key
     "content-type": "application/json"
 }
 

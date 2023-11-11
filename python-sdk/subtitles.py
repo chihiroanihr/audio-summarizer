@@ -9,11 +9,19 @@ You can export your completed transcripts in SRT or VTT format, which can be use
   within HTML5 video.
 '''
 
+import os
 import sys
 import assemblyai as aai
 
+# Add the parent directory of the script to the Python path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
+sys.path.append(parent_dir)
+
+from writeToFile import write_result
+
 # Replace with your API token
-aai.settings.api_key = f""
+aai.settings.api_key = os.environ["API_ASSEMBLY-AI"]
 
 # URL of the file to transcribe
 FILE_URL = "https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3"
@@ -40,11 +48,13 @@ while True:
             print(transcript.error)
         else:
             if user_input == '1':
-                # Export SRT subtitles 
-                print(transcript.export_subtitles_srt())
+                # Export SRT subtitles
+                write_result(transcript.export_subtitles_srt())
+                # print(transcript.export_subtitles_srt())
             else:
                 # Export VTT subtitles
-                print(transcript.export_subtitles_vtt())
+                write_result(transcript.export_subtitles_vtt())
+                # print(transcript.export_subtitles_vtt())
     else:
         print("Please enter a valid option.")
         

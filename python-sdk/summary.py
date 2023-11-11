@@ -13,11 +13,19 @@ Each chapter contains the following:
 You'll send the auto_chapters parameter in your request, and then use chapters property from the response.
 '''
 
+import os
 import sys
 import assemblyai as aai
 
+# Add the parent directory of the script to the Python path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
+sys.path.append(parent_dir)
+
+from writeToFile import write_result
+
 # Replace with your API token
-aai.settings.api_key = f""
+aai.settings.api_key = os.environ["API_ASSEMBLY-AI"]
 
 # URL of the file to transcribe
 FILE_URL = "https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3"
@@ -35,13 +43,22 @@ transcript = transcriber.transcribe(FILE_URL)
 if transcript.error:
     print(transcript.error)
 else:
+    transcript_texts = []
     for chapter in transcript.chapters:
-        print("Chapter Start Time:", chapter.start)
-        print("Chapter End Time:", chapter.end)
-        print("Chapter Gist:", chapter.gist)
-        print("Chapter Headline:", chapter.headline)
-        print("Chapter Summary:", chapter.summary)
-        print()
+        # print(f"Chapter Start Time: {chapter.start}\
+        #     \nChapter End Time: {chapter.end}\
+        #     \nChapter Gist: {chapter.gist}\
+        #     \nChapter Headline: {chapter.headline}\
+        #     \nChapter Summary: {chapter.summary}\
+        #     \n")
+        transcript_text = f"Chapter Start Time: {chapter.start}\
+            \nChapter End Time: {chapter.end}\
+            \nChapter Gist: {chapter.gist}\
+            \nChapter Headline: {chapter.headline}\
+            \nChapter Summary: {chapter.summary}\
+            \n"
+        transcript_texts.append(transcript_text)
+    write_result('\n'.join(transcript_texts))
 
 '''
 Your automatic chapters are located in the chapters key of the API response.

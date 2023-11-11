@@ -8,14 +8,22 @@ pip install -U assemblyai
 Note: Some macOS users may need to use `pip3` instead of `pip`.
 '''
 
+import os
 import sys
 import assemblyai as aai
 
+# Add the parent directory of the script to the Python path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.abspath(os.path.join(current_dir, os.pardir))
+sys.path.append(parent_dir)
+
+from writeToFile import write_result
+
 # Replace with your API token
-aai.settings.api_key = f""
+aai.settings.api_key = os.environ["API_ASSEMBLY-AI"]
 
 # URL of the file to transcribe
-FILE_URL = "/Users/rhina/Downloads/Summarize Video/python-sdk/Next.js Conf 2023 — Stage S.mp4"
+FILE_URL = "https://github.com/AssemblyAI-Examples/audio-examples/raw/main/20230607_me_canadian_wildfires.mp3"
 
 # Transcribe audio function
 def transcribe_audio(enable_speaker_diarization=False):
@@ -40,10 +48,16 @@ def transcribe_audio(enable_speaker_diarization=False):
     else:
         if enable_speaker_diarization:
             # In addition to the full transcript, you now have access to utterances from each speaker.
-            for utterance in transcript.utterances:
-                print(f"Speaker {utterance.speaker}: {utterance.text}")
+            speaker_texts = []
+            if enable_speaker_diarization:
+                for utterance in transcript.utterances:
+                    # print(f"Speaker {utterance.speaker}: {utterance.text}")
+                    speaker_text = f"Speaker {utterance.speaker}: {utterance.text}"
+                    speaker_texts.append(speaker_text)
+            write_result('\n'.join(speaker_texts))
         else:
-            print(transcript.text)
+            write_result(transcript.text)
+            # print(transcript.text)
 
 # User Input
 while True:
